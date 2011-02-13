@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML lang="en"><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <TITLE>Boxes and Arrows</TITLE>
+        <LINK rel="stylesheet" href="./css/boxes-and-arrows.css" type="text/css" media="all">
+        <LINK rel="stylesheet" href="./css/jquery-ui-1.8.5.custom.css" type="text/css" media="screen">
+        <SCRIPT src="./js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/jquery-ui-1.8.5.custom.min.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/jquery.ui.ipad.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/raphael-min.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/parser.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/boxes-and-arrows.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT type="text/javascript" charset="utf-8">
+
+		$(function() {
+			$("#ba-editor").keyup(editorChanged);
+			editorChanged();
+			$(".ba-toggle-editor").click(function() {
+				if ($("#ba-editor").hasClass("hidden")) {
+					$("#ba-editor").removeClass("hidden");
+				} else {
+					$("#ba-editor").addClass("hidden");
+				}
+			});
+			$(".ba-button-open").click(function() {
+				BA.refeshExistingDocumentsList();
+				window.location.hash = "open";
+			});
+			$(".ba-button-save").click(BA.save);
+			$(".ba-button-save-as").click(function() {
+				BA.refeshExistingDocumentsList();
+				window.location.hash = "save-as";
+			});
+			$("#ba-button-open-ok").click(BA.open);
+			$("#ba-button-save-as-ok").click(BA.saveAs);
+			$(".ba-existing-documents-list").change(function() {
+				$(".ba-diagram-storage-key").val($(".ba-existing-documents-list").val());
+			});
+			BA.refeshExistingDocumentsList();
+			BA.loadLastOpenDocumentIfExists();
+		});
+        </SCRIPT>
+    </HEAD><BODY>
+
+<div class="ba-button-bar">
+	<span class="ba-button ba-button-new">New</span>
+	<span class="ba-button ba-button-open">Open</span>
+	<span class="ba-button ba-button-save">Save</span>
+	<span class="ba-button ba-button-save-as">Save As</span>
+	<span class="ba-message prototype"></span>
+</div>
+
+		<h2>Boxes and Arrows</h2>
+		<a class="ba-toggle-editor">Show/Hide Editor</a>
+		<div id="ba-work-area">
+		<textarea id="ba-editor">
+		</textarea>
+		<!-- <div id="ba-diagram"></div> -->
+		<div id="ba-display"></div>
+		<div class="ba-node prototype">
+			<div class="ba-label"></div>
+		</div>
+		</div>
+		
+	<div class="glasspane" id="open">
+		<div>
+			<div class="modal-panel">
+				<h2>Open</h2>
+				<form>
+					<input class="ba-diagram-storage-key" id="ba-open-storage-key" type="text"></input>
+					<div>
+						<select class="ba-existing-documents-list" size="5">
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+						</select>
+					</div>
+					<div>
+						<span class="ba-button" id="ba-button-open-ok">Open</span>
+						<span class="ba-button"><a href="javascript:window.history.back()">Cancel</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="glasspane" id="save-as">
+		<div>
+			<div class="modal-panel">
+				<h2>Save As</h2>
+				<form>
+					<input class="ba-diagram-storage-key" id="ba-save-as-storage-key" type="text"></input>
+					<div>
+						<select class="ba-existing-documents-list" size="5">
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+							<option>sdfsdfsd</option>
+						</select>
+					</div>
+					<div>
+						<span class="ba-button" id="ba-button-save-as-ok">Save</span>
+						<span class="ba-button"><a href="javascript:window.history.back()">Cancel</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</BODY></HTML>

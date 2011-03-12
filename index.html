@@ -10,28 +10,13 @@
         <SCRIPT src="./js/raphael-min.js" type="text/javascript" charset="utf-8"></SCRIPT>
         <SCRIPT src="./js/parser.js" type="text/javascript" charset="utf-8"></SCRIPT>
         <SCRIPT src="./js/boxes-and-arrows.js" type="text/javascript" charset="utf-8"></SCRIPT>
+        <SCRIPT src="./js/browser-storage.js" type="text/javascript" charset="utf-8"></SCRIPT>
         <SCRIPT type="text/javascript" charset="utf-8">
 
 		$(function() {
 			$(".ba-editor").keyup(editorChanged);
 			editorChanged();
-			$(".ba-toggle-editor").click(function() {
-				$(".ba-editor").toggleClass("hidden");
-			});
-			$(".ba-button-open").click(function() {
-				BA.refeshExistingDocumentsList();
-				window.location.hash = "open";
-			});
-			$(".ba-button-save").click(BA.save);
-			$(".ba-button-save-as").click(function() {
-				BA.refeshExistingDocumentsList();
-				window.location.hash = "save-as";
-			});
-			$("#ba-button-open-ok").click(BA.open);
-			$("#ba-button-save-as-ok").click(BA.saveAs);
-			$(".ba-existing-documents-list").change(function() {
-				$(".ba-diagram-storage-key").val($(".ba-existing-documents-list").val());
-			});
+			BA.bindStorageButtons();
 			BA.refeshExistingDocumentsList();
 			BA.loadLastOpenDocumentIfExists();
 		});

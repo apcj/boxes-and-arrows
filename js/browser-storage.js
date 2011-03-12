@@ -10,7 +10,7 @@ var browserStorage = function() {
 		}
 	}
 
-	browserStoragePackage.refeshExistingDocumentsList = function() {
+	var refeshExistingDocumentsList = function() {
 		$(".ba-existing-documents-list").find("*").remove();
 		for (var i = 0; i < localStorage.length; i++) {
 			var key = localStorage.key(i);
@@ -59,12 +59,12 @@ var browserStorage = function() {
 			$(".ba-editor").toggleClass("hidden");
 		});
 		$(".ba-button-open").click(function() {
-			browserStoragePackage.refeshExistingDocumentsList();
+			refeshExistingDocumentsList();
 			window.location.hash = "open";
 		});
 		$(".ba-button-save").click(save);
 		$(".ba-button-save-as").click(function() {
-			browserStoragePackage.refeshExistingDocumentsList();
+			refeshExistingDocumentsList();
 			window.location.hash = "save-as";
 		});
 		$("#ba-button-open-ok").click(open);

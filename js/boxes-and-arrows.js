@@ -6,6 +6,9 @@ var buildDiagram = function(node, parentElement) {
 	var newElement = $(".ba-node.prototype").clone();
 	newElement.removeClass("prototype");
 	newElement.find(".ba-label").append(node.name);
+	for (var i = 0; i < node.classes.length; i++) {
+		newElement.addClass("bauser-" + node.classes[i]);
+	}
 	parentElement.append(newElement);
 	for (var i = 0; i < node.children.length; i++) {
 		var child = node.children[i];

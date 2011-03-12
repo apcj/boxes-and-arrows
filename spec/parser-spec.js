@@ -100,4 +100,25 @@ describe("Parser", function() {
 	expect(tree.children[1].name).toEqual("parent 2");
   });
 
+  it("should attach single class name when supplied", function() {
+  	var tree = parse([
+		"node .classname"
+	]);
+	expect(tree.children.length).toEqual(1);
+	expect(tree.children[0].name).toEqual("node");
+	expect(tree.children[0].classes.length).toEqual(1);
+	expect(tree.children[0].classes[0]).toEqual("classname");
+  });
+
+  it("should attach multiple class names when supplied", function() {
+  	var tree = parse([
+		"node .classname1.classname2"
+	]);
+	expect(tree.children.length).toEqual(1);
+	expect(tree.children[0].name).toEqual("node");
+	expect(tree.children[0].classes.length).toEqual(2);
+	expect(tree.children[0].classes[0]).toEqual("classname1");
+	expect(tree.children[0].classes[1]).toEqual("classname2");
+  });
+
 });

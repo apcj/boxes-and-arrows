@@ -6,7 +6,7 @@ var browserStorage = function() {
 	browserStoragePackage.loadLastOpenDocumentIfExists = function() {
 		var lastOpenDocument = localStorage.getItem("boxesAndArrows.lastOpenDocument");
 		if (lastOpenDocument) {
-			$("#ba-editor").val(localStorage.getItem(lastOpenDocument));
+			$("#ba-content-editor").val(localStorage.getItem("boxesAndArrows.source." + lastOpenDocument));
 		}
 	}
 
@@ -23,6 +23,7 @@ var browserStorage = function() {
 	var open = function() {
 		diagramStorageKey = $("#ba-open-storage-key").val();
 		$("#ba-content-editor").val(localStorage.getItem("boxesAndArrows.source." + diagramStorageKey));
+		localStorage.setItem("boxesAndArrows.lastOpenDocument", diagramStorageKey);
 		window.history.back();
 		editorChanged();
 	}
@@ -30,6 +31,7 @@ var browserStorage = function() {
 	var saveAs = function() {
 		diagramStorageKey = $("#ba-save-as-storage-key").val();
 		save();
+		window.history.back();
 	}
 
 	var save = function() {

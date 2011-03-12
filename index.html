@@ -16,10 +16,10 @@
 
 		$(function() {
 			$(".ba-editor").keyup(editorChanged);
-			editorChanged();
 			browserStorage.bindStorageButtons();
 			browserStorage.refeshExistingDocumentsList();
 			browserStorage.loadLastOpenDocumentIfExists();
+			editorChanged();
 		});
         </SCRIPT>
 <style>

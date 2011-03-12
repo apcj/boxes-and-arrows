@@ -1,7 +1,3 @@
-var BA = {};
-
-BA.diagramStorageKey = null;
-
 var buildDiagram = function(node, parentElement) {
 	var newElement = $(".node.prototype").clone();
 	newElement.removeClass("prototype");

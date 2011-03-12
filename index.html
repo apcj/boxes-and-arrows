@@ -16,9 +16,9 @@
 		$(function() {
 			$(".ba-editor").keyup(editorChanged);
 			editorChanged();
-			BA.bindStorageButtons();
-			BA.refeshExistingDocumentsList();
-			BA.loadLastOpenDocumentIfExists();
+			browserStorage.bindStorageButtons();
+			browserStorage.refeshExistingDocumentsList();
+			browserStorage.loadLastOpenDocumentIfExists();
 		});
         </SCRIPT>
 <style>

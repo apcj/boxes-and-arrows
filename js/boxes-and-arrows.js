@@ -3,11 +3,11 @@ var BA = {};
 BA.diagramStorageKey = null;
 
 var buildDiagram = function(node, parentElement) {
-	var newElement = $(".ba-node.prototype").clone();
+	var newElement = $(".node.prototype").clone();
 	newElement.removeClass("prototype");
-	newElement.find(".ba-label").append(node.name);
+	newElement.find(".label").append(node.name);
 	for (var i = 0; i < node.classes.length; i++) {
-		newElement.addClass("bauser-" + node.classes[i]);
+		newElement.addClass(node.classes[i]);
 	}
 	parentElement.append(newElement);
 	for (var i = 0; i < node.children.length; i++) {
@@ -17,8 +17,9 @@ var buildDiagram = function(node, parentElement) {
 }
 
 var editorChanged = function() {
-	var node = parse($('#ba-editor').val().split("\n"));
+	var node = parse($('#ba-content-editor').val().split("\n"));
 	$("#ba-display").find("*").remove();
+	$("style").text($('#ba-style-editor').val());
 	buildDiagram(node, $("#ba-display"))
 }
 
@@ -41,7 +42,7 @@ BA.refeshExistingDocumentsList = function() {
 
 BA.open = function() {
 	BA.diagramStorageKey = $("#ba-open-storage-key").val();
-	$("#ba-editor").val(localStorage.getItem("boxesAndArrows.source." + BA.diagramStorageKey));
+	$("#ba-content-editor").val(localStorage.getItem("boxesAndArrows.source." + BA.diagramStorageKey));
 	window.history.back();
 	editorChanged();
 }
@@ -53,7 +54,7 @@ BA.saveAs = function() {
 
 BA.save = function() {
 	if (BA.diagramStorageKey) {
-		localStorage.setItem("boxesAndArrows.source." + BA.diagramStorageKey, $("#ba-editor").val());
+		localStorage.setItem("boxesAndArrows.source." + BA.diagramStorageKey, $("#ba-content-editor").val());
 		localStorage.setItem("boxesAndArrows.lastOpenDocument", BA.diagramStorageKey);
 		BA.showSaveSuccessfulMessage();
 	} else {

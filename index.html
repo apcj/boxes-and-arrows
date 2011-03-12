@@ -13,14 +13,10 @@
         <SCRIPT type="text/javascript" charset="utf-8">
 
 		$(function() {
-			$("#ba-editor").keyup(editorChanged);
+			$(".ba-editor").keyup(editorChanged);
 			editorChanged();
 			$(".ba-toggle-editor").click(function() {
-				if ($("#ba-editor").hasClass("hidden")) {
-					$("#ba-editor").removeClass("hidden");
-				} else {
-					$("#ba-editor").addClass("hidden");
-				}
+				$(".ba-editor").toggleClass("hidden");
 			});
 			$(".ba-button-open").click(function() {
 				BA.refeshExistingDocumentsList();
@@ -38,7 +34,6 @@
 			});
 			BA.refeshExistingDocumentsList();
 			BA.loadLastOpenDocumentIfExists();
-			$("style").text(".bauser-row { overflow: hidden; } .bauser-row > .ba-node { float: left; }");
 		});
         </SCRIPT>
 <style>
@@ -57,12 +52,23 @@
 		<h2>Boxes and Arrows</h2>
 		<a class="ba-toggle-editor">Show/Hide Editor</a>
 		<div id="ba-work-area">
-		<textarea id="ba-editor">
-		</textarea>
-		<!-- <div id="ba-diagram"></div> -->
+		<textarea class="ba-editor" id="ba-content-editor"></textarea>
+		<textarea class="ba-editor" id="ba-style-editor">
+.node {
+	border: solid 2px black;
+	border-radius: 3px;
+	margin: 5px 10px;
+	text-align: center;
+}
+
+.label {
+	margin: 5px;
+}
+</textarea>
 		<div id="ba-display"></div>
-		<div class="ba-node prototype">
-			<div class="ba-label"></div>
+
+		<div class="node prototype">
+			<div class="label"></div>
 		</div>
 		</div>
 		

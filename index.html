@@ -16,8 +16,19 @@
 
 		$(function() {
 			$(".ba-editor").keyup(editorChanged);
-			browserStorage.bindStorageButtons();
-			browserStorage.loadLastOpenDocumentIfExists();
+			browserStorage.init(
+				function() {
+					return JSON.stringify({
+						content: $("#ba-content-editor").val(),
+						style: $("#ba-style-editor").val()
+					});
+				},
+				function(value) {
+					var parsed = JSON.parse(value);
+					$("#ba-content-editor").val(parsed.content);
+					$("#ba-style-editor").val(parsed.style);
+				}
+			);
 			editorChanged();
 		});
         </SCRIPT>

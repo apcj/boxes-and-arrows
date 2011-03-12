@@ -1,0 +1,53 @@
+.ba-button {
+	background-color: lightgrey;
+	border: solid 1px black;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.ba-message {
+	color: white;
+	margin: 5px;
+	padding: 5px;
+	background-color: red;
+	border-radius: 5px;
+}
+
+.glasspane
+{
+	width: 100%;
+	height: 100%;
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	display: none; 
+	z-index: 999;
+	background: rgba(0,0,0,0.7);
+	text-align: center;
+}
+
+.glasspane div
+{
+	margin: auto;
+	width: 400px;
+	text-align: left;
+}
+
+.glasspane div.modal-panel
+{
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+}
+ 
+.glasspane:target {
+	display: block;
+}
+
+.ba-diagram-storage-key {
+	width: 200px;
+}
+
+.ba-existing-documents-list {
+	width: 200px;
+}

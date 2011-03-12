@@ -51,3 +51,9 @@
 .ba-existing-documents-list {
 	width: 200px;
 }
+
+@media print {
+	.ba-button-bar {
+		display: none;
+	}	
+}

@@ -21,7 +21,7 @@ body {
 }
 
 @media print {
-	#ba-editor, .ba-toggle-editor {
+	.ba-editor, .ba-toggle-editor {
 		display: none;
 	}	
 }

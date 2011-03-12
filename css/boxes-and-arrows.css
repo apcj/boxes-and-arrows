@@ -27,14 +27,6 @@ body {
 	text-align: center;
 }
 
-.bauser-row {
-	overflow: hidden;
-}
-
-.bauser-row-child {
-	float: left;
-}
-
 .ba-label {
 	margin: 5px;
 }

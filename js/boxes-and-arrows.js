@@ -2,24 +2,27 @@ var BA = {};
 
 BA.diagramStorageKey = null;
 
-var buildDiagram = function(node, parentElement) {
+var buildDiagram = function(node, parent, parentElement) {
 	var newElement = $(".ba-node.prototype").clone();
 	newElement.removeClass("prototype");
 	newElement.find(".ba-label").append(node.name);
 	for (var i = 0; i < node.classes.length; i++) {
 		newElement.addClass("bauser-" + node.classes[i]);
 	}
+	for (var i = 0; i < parent.classes.length; i++) {
+		newElement.addClass("bauser-" + parent.classes[i] + "-child");
+	}
 	parentElement.append(newElement);
 	for (var i = 0; i < node.children.length; i++) {
 		var child = node.children[i];
-		buildDiagram(child, newElement);
+		buildDiagram(child, node, newElement);
 	}
 }
 
 var editorChanged = function() {
 	var node = parse($('#ba-editor').val().split("\n"));
 	$("#ba-display").find("*").remove();
-	buildDiagram(node, $("#ba-display"))
+	buildDiagram(node, { classes: [] }, $("#ba-display"))
 }
 
 BA.loadLastOpenDocumentIfExists = function() {

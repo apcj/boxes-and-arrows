@@ -52,6 +52,7 @@ var browserStorage = function() {
 			var lastOpenDocument = localStorage.getItem("boxesAndArrows.lastOpenDocument");
 			if (lastOpenDocument) {
 				setCurrentState(localStorage.getItem("boxesAndArrows.source." + lastOpenDocument));
+				diagramStorageKey = lastOpenDocument;
 			}
 		}
 

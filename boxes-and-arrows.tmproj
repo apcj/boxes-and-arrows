@@ -40,65 +40,111 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>83</integer>
+				<integer>22</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
+		</dict>
+		<key>css/browser-storage.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>15</integer>
+				<key>line</key>
+				<integer>55</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>7</integer>
+			<integer>0</integer>
 		</dict>
 		<key>index.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>25</integer>
 				<key>line</key>
-				<integer>100</integer>
+				<integer>39</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>3</integer>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>39</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>25</integer>
+				<key>line</key>
+				<integer>39</integer>
+			</dict>
 		</dict>
 		<key>js/boxes-and-arrows.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>23</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>41</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>16</integer>
+			<integer>0</integer>
 		</dict>
-		<key>js/jquery.ui.ipad.js</key>
+		<key>js/browser-storage.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>18</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>28</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
 		<key>js/parser.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>26</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>26</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -124,30 +170,29 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>101</integer>
+				<integer>120</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>33</integer>
+			<integer>74</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>index.html</string>
 		<string>js/boxes-and-arrows.js</string>
-		<string>js/svg_layout.js</string>
+		<string>js/browser-storage.js</string>
 		<string>css/boxes-and-arrows.css</string>
-		<string>SpecRunner.html</string>
+		<string>css/browser-storage.css</string>
 		<string>spec/parser-spec.js</string>
 		<string>js/parser.js</string>
-		<string>js/jquery.ui.ipad.js</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{325, 704}, {957, 874}}</string>
+	<string>{{1480, 57}, {982, 1387}}</string>
 </dict>
 </plist>

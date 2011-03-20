@@ -28,14 +28,14 @@ var browserStorage = function() {
 		var displaySaveAsDialog = function() {
 			refeshExistingDocumentsList();
 			$(".modal-panel").find("h2").text("Save As");
-			$("#ba-button-ok").text("Save").click(saveAs);
+			$("#ba-button-ok").text("Save").unbind("click").click(saveAs);
 			$(".glasspane").removeClass("hidden");
 		}
 		
 		var displayOpenDialog = function() {
 			refeshExistingDocumentsList();
 			$(".modal-panel").find("h2").text("Open");
-			$("#ba-button-ok").text("Open").click(open);
+			$("#ba-button-ok").text("Open").unbind("click").click(open);
 			$(".glasspane").removeClass("hidden");
 		}
 		

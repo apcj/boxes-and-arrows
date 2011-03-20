@@ -7,8 +7,7 @@ var buildDiagram = function(node, parentElement) {
 	}
 	parentElement.append(newElement);
 	for (var i = 0; i < node.children.length; i++) {
-		var child = node.children[i];
-		buildDiagram(child, newElement);
+		buildDiagram(node.children[i], newElement);
 	}
 }
 
@@ -16,5 +15,7 @@ var editorChanged = function() {
 	var node = parse($('#ba-content-editor').val().split("\n"));
 	$("#ba-display").find("*").remove();
 	$("style").text($('#ba-style-editor').val());
-	buildDiagram(node, $("#ba-display"))
+	for (var i = 0; i < node.children.length; i++) {
+		buildDiagram(node.children[i], $("#ba-display"));
+	}
 }

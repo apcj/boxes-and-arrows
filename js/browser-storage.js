@@ -24,18 +24,33 @@ var browserStorage = function() {
 	}
 
 	browserStoragePackage.init = function(getCurrentState, setCurrentState) {
+
+		var displaySaveAsDialog = function() {
+			refeshExistingDocumentsList();
+			$(".modal-panel").find("h2").text("Save As");
+			$("#ba-button-ok").text("Save").click(saveAs);
+			$(".glasspane").removeClass("hidden");
+		}
+		
+		var displayOpenDialog = function() {
+			refeshExistingDocumentsList();
+			$(".modal-panel").find("h2").text("Open");
+			$("#ba-button-ok").text("Open").click(open);
+			$(".glasspane").removeClass("hidden");
+		}
+		
 		var open = function() {
-			diagramStorageKey = $("#ba-open-storage-key").val();
+			diagramStorageKey = $("#ba-diagram-storage-key").val();
 			setCurrentState(localStorage.getItem("boxesAndArrows.source." + diagramStorageKey));
 			localStorage.setItem("boxesAndArrows.lastOpenDocument", diagramStorageKey);
-			window.history.back();
+			$(".glasspane").addClass("hidden");
 			editorChanged();
 		}
 
 		var saveAs = function() {
-			diagramStorageKey = $("#ba-save-as-storage-key").val();
+			diagramStorageKey = $("#ba-diagram-storage-key").val();
 			save();
-			window.history.back();
+			$(".glasspane").addClass("hidden");
 		}
 
 		var save = function() {
@@ -44,7 +59,7 @@ var browserStorage = function() {
 				localStorage.setItem("boxesAndArrows.lastOpenDocument", diagramStorageKey);
 				showSaveSuccessfulMessage();
 			} else {
-				window.location.hash = "save-as";
+				displaySaveAsDialog();
 			}
 		}
 
@@ -57,22 +72,14 @@ var browserStorage = function() {
 		}
 
 		var bindStorageButtons = function() {
-			$(".ba-toggle-editor").click(function() {
-				$(".ba-editor").toggleClass("hidden");
-			});
-			$(".ba-button-open").click(function() {
-				refeshExistingDocumentsList();
-				window.location.hash = "open";
-			});
+			$(".ba-button-open").click(displayOpenDialog);
 			$(".ba-button-save").click(save);
-			$(".ba-button-save-as").click(function() {
-				refeshExistingDocumentsList();
-				window.location.hash = "save-as";
+			$(".ba-button-save-as").click(displaySaveAsDialog);
+			$("#ba-button-cancel").click(function() {
+				$(".glasspane").addClass("hidden");
 			});
-			$("#ba-button-open-ok").click(open);
-			$("#ba-button-save-as-ok").click(saveAs);
 			$(".ba-existing-documents-list").change(function() {
-				$(".ba-diagram-storage-key").val($(".ba-existing-documents-list").val());
+				$("#ba-diagram-storage-key").val($(".ba-existing-documents-list").val());
 			});
 		}
 

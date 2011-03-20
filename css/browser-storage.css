@@ -20,7 +20,6 @@
 	position: absolute; 
 	top: 0; 
 	left: 0; 
-	display: none; 
 	z-index: 999;
 	background: rgba(0,0,0,0.7);
 	text-align: center;
@@ -40,10 +39,6 @@
 	border-radius: 10px;
 }
  
-.glasspane:target {
-	display: block;
-}
-
 .ba-diagram-storage-key {
 	width: 200px;
 }

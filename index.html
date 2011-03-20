@@ -16,6 +16,9 @@
         <script type="text/javascript" charset="utf-8">
 
 		$(function() {
+			$(".ba-toggle-editor").click(function() {
+				$(".ba-editor").toggleClass("hidden");
+			});
 			$(".ba-editor").keyup(editorChanged);
 			browserStorage.init(
 				function() {
@@ -69,37 +72,19 @@
 		</div>
 		</div>
 		
-	<div class="glasspane" id="open">
+	<div class="glasspane hidden">
 		<div>
 			<div class="modal-panel">
 				<h2>Open</h2>
 				<form>
-					<input class="ba-diagram-storage-key" id="ba-open-storage-key" type="text"></input>
+					<input id="ba-diagram-storage-key" type="text"></input>
 					<div>
 						<select class="ba-existing-documents-list" size="5">
 						</select>
 					</div>
 					<div>
-						<span class="ba-button" id="ba-button-open-ok">Open</span>
-						<span class="ba-button"><a href="javascript:window.history.back()">Cancel</a></span>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="glasspane" id="save-as">
-		<div>
-			<div class="modal-panel">
-				<h2>Save As</h2>
-				<form>
-					<input class="ba-diagram-storage-key" id="ba-save-as-storage-key" type="text"></input>
-					<div>
-						<select class="ba-existing-documents-list" size="5">
-						</select>
-					</div>
-					<div>
-						<span class="ba-button" id="ba-button-save-as-ok">Save</span>
-						<span class="ba-button"><a href="javascript:window.history.back()">Cancel</a></span>
+						<span class="ba-button" id="ba-button-ok">OK</span>
+						<span class="ba-button" id="ba-button-cancel">Cancel</span>
 					</div>
 				</form>
 			</div>
